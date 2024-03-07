@@ -1,16 +1,22 @@
-body, html {
-    height: 100%;
+body {
+    background-image: url(../images/conjunto.webp);
+    background-size: cover;
 }
-
-.container-fluid {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .formulari {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+    width: 20%;
+    margin-top: 18vh;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+.inputs {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.anarhi {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: 8vh;
 }

@@ -7,10 +7,26 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
-    <div class="container-fluid d-flex justify-content-center align-items-center">
-      <form class="formulari">
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
+    <div class="formulari">
+        <form method="post">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Digues el teu nom?</label>
+                <input type="text" class="form-control" id="nom" aria-describedby="nom" placeholder="Escriu el teu nom">
+            </div>
+            <br>
+            <div class="mb-3">
+                <label class="form-label">Sobre que vols fer el qüestionari?</label>
+                <div class="form-control inputs">
+                    <label><input type="radio" class="form-check-input" name="radio">Fútbol</label>
+                </div>
+                <br>
+                <div class="form-control inputs">
+                    <label><input type="radio" class="form-check-input" name="radio">CERN</label>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary anarhi">Anar-hi</button>
+            </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
