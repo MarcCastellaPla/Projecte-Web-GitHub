@@ -1,11 +1,6 @@
 body {
-    background-image: url(../images/cern.webp);
     background-size: cover;
-}
-.messi {
-    background-image: url(../images/messi.webp);
-    height: 50vh;
-    background-size: cover;
+    background-image: url(../images/conjunto.webp);
 }
 .opacidad {
     opacity: 0%;
@@ -13,7 +8,7 @@ body {
 .formulari {
     margin: auto;
     width: 20%;
-    margin-top: -30vh;
+    margin-top: 19vh;
     border: 2px solid black;
     padding: 20px;
     background-color: aliceblue;
@@ -27,4 +22,23 @@ body {
     padding-left: 40px;
     padding-right: 40px;
     margin-left: 8vh;
+}
+.fonscern {
+    background-image: url(../images/cern.webp);
+    animation: desapareixer 2s; /* Corregido el nombre de la animación */
+}
+
+.fonsmessi {
+    background-image: url(../images/messi.webp);
+    animation: desapareixer 2s; /* Se utiliza la misma animación */
+}
+
+
+@keyframes desapareixer {
+    0% { opacity: 1; } /* Opacidad máxima al inicio */
+    100% { opacity: 0; } /* Opacidad mínima al final */
+}
+@keyframes apareixer {
+    0% { opacity: 0; } /* Opacidad máxima al inicio */
+    100% { opacity: 1; } /* Opacidad mínima al final */
 }
