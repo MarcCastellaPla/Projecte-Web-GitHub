@@ -1,15 +1,23 @@
 body {
-    background-image: url(../images/conjunto.webp);
+    background-image: url(../images/cern.webp);
     background-size: cover;
+}
+.messi {
+    background-image: url(../images/messi.webp);
+    height: 50vh;
+    background-size: cover;
+}
+.opacidad {
+    opacity: 0%;
 }
 .formulari {
     margin: auto;
     width: 20%;
-    margin-top: 18vh;
+    margin-top: -30vh;
     border: 2px solid black;
     padding: 20px;
     background-color: aliceblue;
-    border-radius: 15px;
+    border-radius: 15px; 
 }
 .inputs {
     padding-top: 10px;
