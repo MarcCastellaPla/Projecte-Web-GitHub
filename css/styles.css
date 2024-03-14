@@ -87,20 +87,12 @@ body.preguntes {
 }
 .fonscern {
     background-image: url(../images/cern.webp);
-    animation: desapareixer 2s; /* Corregido el nombre de la animación */
 }
 
 .fonsmessi {
     background-image: url(../images/messi.webp);
-    animation: desapareixer 2s; /* Se utiliza la misma animación */
+
 }
 
 
-@keyframes desapareixer {
-    0% { opacity: 1; } /* Opacidad máxima al inicio */
-    100% { opacity: 0; } /* Opacidad mínima al final */
-}
-@keyframes apareixer {
-    0% { opacity: 0; } /* Opacidad máxima al inicio */
-    100% { opacity: 1; } /* Opacidad mínima al final */
-}
+
