@@ -1,10 +1,13 @@
-body.inici {
-    background-size: cover;
-    background-image: url(../images/conjunto.webp);
-}
 body.preguntes {
     background-color: rgb(69, 113, 174);
+    background-image: none;
 }
+body {
+    background-size: cover;
+    background-image: url(../images/conjunto.webp);
+    transition: 1s;
+}
+
 .principal {
     border: 4px solid rgb(132, 183, 249);
     margin: auto;
@@ -93,6 +96,3 @@ body.preguntes {
     background-image: url(../images/messi.webp);
 
 }
-
-
-
