@@ -185,3 +185,7 @@ select {
     margin: auto;
     margin-bottom: 2%;
 }
+.ocult {
+    display:none;
+
+}
