@@ -8,7 +8,7 @@
   </head>
   <body id="body">
     <div class="formulari">
-        <form method="post">
+        <form method="post" id="formulari" action="">
             <div class="mb-3">
                 <label for="nom" class="form-label">Digues el teu nom?</label>
                 <input type="text" class="form-control" id="nom" aria-describedby="nom" placeholder="Escriu el teu nom">
@@ -29,17 +29,26 @@
             </form>
     </div> 
     <script>
+      let formulari = document.getElementById('formulari')
       document.getElementById('futbol').addEventListener('click', function() {
+
         let body = document.getElementById('body')
         body.classList.add("fonsmessi")
         body.classList.remove("fonscern")
+
+        formulari.action = "futbol.php"
+        
       });
     
       document.getElementById('cern').addEventListener('click', function() {
+        
         let body = document.getElementById('body')
         body.classList.add("fonscern")
         body.classList.remove("fonsmessi")
+
+        formulari.action = "cern.php"
       });
+
 
     </script>
     
