@@ -1,4 +1,4 @@
-body.preguntes {
+body.preguntes, body.final {
     background-color: rgb(69, 113, 174);
     background-image: none;
 }
@@ -95,4 +95,12 @@ body {
 .fonsmessi {
     background-image: url(../images/messi.webp);
 
+}
+.percentatge {
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 5vh;
+    text-align: center;
+    width: 40%;
+    background-color: rgb(233, 160, 71);
 }
