@@ -32,7 +32,6 @@
             $pregunta = $llista_preguntes[$numaleatori];
             $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : null;
             $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;
-            $numanterior = (intval($numanterior) ) + 1;
             echo "<h1>$numanterior</h1>";
             
             
@@ -63,7 +62,7 @@
                 $resposta3 = "C5";
                 $resposta4 = "D5";
             } elseif ($numaleatori == 5) {
-                $resposta1 = "A6";
+                $resposta1  = "A6";
                 $resposta2 = "B6";
                 $resposta3 = "C6";
                 $resposta4 = "D6";
@@ -88,7 +87,7 @@
                 $resposta3 = "C10";
                 $resposta4 = "D10";
             }
-
+            $correcte = $resposta1;
             $pregunta = $llista_preguntes[$numaleatori];
             echo '<p class="pregunta" id="pregunta">'. $pregunta. '</p>';
         
@@ -101,24 +100,25 @@
             <form action=\"Plantilla.php\" method=\"post\">
                 <div class=\"respostesadalt\">
                     <div class=\"resposta1\">
-                    <label for=\"pregunta_cern\"><input type=\"radio\" name=\"pregunta_cern\" id=\"pregunta_cern\" id=\"resposta1\" value=\"1\">$resposta1</label>
+                    <label for=\"pregunta_cern\"><input type=\"radio\" name=\"pregunta_cern\" id=\"resposta1\" id=\"resposta1\" value=\"$resposta1\">$correcte</label>
                     </div>
                     <div class=\"resposta1\">
-                        <label for=\"pregunta_cern\"><input type=\"radio\" name=\"pregunta_cern\" id=\"pregunta_cern\" value=\"2\">$resposta2</label>
+                        <label for=\"pregunta_cern\"><input type=\"radio\" name=\"pregunta_cern\" id=\"resposta2\" value=\"$resposta2\">$resposta2</label>
                         </div>
                 </div>
                     <div class=\"respostesabaix\">
                         <div class=\"resposta1\">
-                            <label><input type=\"radio\" name=\"pregunta_cern\" value=\"3\">$resposta3</label>
+                            <label><input type=\"radio\" name=\"pregunta_cern\" value=\"$resposta3\" id=\"resposta3\">$resposta3</label>
                             </div>
                             <div class=\"resposta1\">
-                                <label><input type=\"radio\" name=\"pregunta_cern\"value=\"4\">$resposta4</label>
+                                <label><input type=\"radio\" name=\"pregunta_cern\"value=\"$resposta4\" id=\"resposta4\">$resposta4</label>
                                 </div>
                             <div class=\"ocult\">
                             <input type=\"hidden\" class=\"form\" id=\"numanterior\" aria-describedby=\"numanterior\" name=\"numanterior\" value=\"$numanterior\">
+                            <input type=\"hidden\" class=\"form\" id=\"correcte\" aria-describedby=\"correcte\" name=\"correcte\" value=\"$correcte\">
                             </div>
                             </div>
-                    <input type=\"submit\" value=\"Next >>\" class=\"enviar\"/>
+                    <input type=\"submit\" value=\"Next >>\" class=\"enviar\" id=\"enviar\"/>
 
             </form>
         </div>
@@ -127,7 +127,28 @@
         ?>
 
         <script>
-            if 
+            			document.getElementById('enviar').addEventListener('click', function() {
+                            let resposta1 = document.getElementById('resposta1')
+                            let resposta2 = document.getElementById('resposta2')
+                            let resposta3 = document.getElementById('resposta3')
+                            let resposta4 = document.getElementById('resposta4')
+                            let correcte = document.getElementById('correcte')
+                            let numanterior = document.getElementById('numanterior')
+                            if(resposta1.checked) {
+
+                                if (resposta1.value == correcte.value) {
+                                    alert("Resposta correcte")
+                                    // Sumar a numanterior.value +1
+
+                                   
+
+                                }
+
+                            }
+
+
+
+                        })
 
         </script>
         
