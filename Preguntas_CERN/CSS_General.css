@@ -16,6 +16,7 @@
 
 body {
     background-color: rgb(69, 113, 174);
+    font-family: system-ui;
 }
 h1 {
     font-family: Arcade;
