@@ -32,7 +32,6 @@
             $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : null;
             $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;
             echo "<h1>$numanterior</h1>";
-            
             $numaleatori = rand(0, 9);
             $lista = str_split($panteriors);
             while (in_array($numaleatori, $lista)) {
@@ -61,55 +60,70 @@
             
 
             if ($numaleatori == 0) {
-                $resposta1 = "A1";
-                $resposta2 = "B1";
-                $resposta3 = "C1";
-                $resposta4 = "D1";
+                $resposta1 = "ABC";
+                $resposta2 = "BPA";
+                $resposta3 = "LHC";
+                $resposta4 = "PLC";
+                $correcte = $resposta1;
+
             } elseif ($numaleatori == 1) {
-                $resposta1 = "A2";
-                $resposta2 = "B2";
-                $resposta3 = "C2";
-                $resposta4 = "D2";
+                $resposta1 = "Organització a Europa per el Descubriment del Univers";
+                $resposta2 = "Organització Europea per la Investigació Nuclear";
+                $resposta3 = "Cientifics a la Recerca de Electrons Neurodivergents";
+                $resposta4 = "Centre d’Estudis de la Robotica i Nanotecnología";
+                $correcte = $resposta2;
             } elseif ($numaleatori == 2) {
-                $resposta1 = "A3";
-                $resposta2 = "B3";
-                $resposta3 = "C3";
-                $resposta4 = "D3";
+                $resposta1 = "1954";
+                $resposta2 = "1965";
+                $resposta3 = "1978";
+                $resposta4 = "1987";
+                $correcte = $resposta1;
             } elseif ($numaleatori == 3) {
-                $resposta1 = "A4";
-                $resposta2 = "B4";
-                $resposta3 = "C4";
-                $resposta4 = "D4";
-            } elseif ($numaleatori == 4) {
-                $resposta1 = "A5";
-                $resposta2 = "B5";
-                $resposta3 = "C5";
-                $resposta4 = "D5";
+                $resposta1 = "El bosó de higgs";
+                $resposta2 = "Els Quarks";
+                $resposta3 = "Els Electrons";
+                $resposta4 = "Els Neutrins";
+                $correcte = $resposta1;
+            }elseif ($numaleatori == 4) {
+                
+                $resposta1 = "Estats Units";
+                $resposta2 = "França";
+                $resposta3 = "Alemanya";
+                $resposta4 = "Suïssa";
+                $correcte = $resposta4;
             } elseif ($numaleatori == 5) {
-                $resposta1  = "A6";
-                $resposta2 = "B6";
-                $resposta3 = "C6";
-                $resposta4 = "D6";
+                $resposta1  = "ALICE";
+                $resposta2 = "STRATFOR";
+                $resposta3 = "CIRN";
+                $resposta4 = "URS";
+                $correcte = $resposta1;
+
             } elseif ($numaleatori == 6) {
-                $resposta1 = "A7";
-                $resposta2 = "B7";
-                $resposta3 = "C7";
-                $resposta4 = "D7";
+                $resposta1 = "Estudiar partícules subatòmiques";
+                $resposta2 = "Generar energia electrica";
+                $resposta3 = "Analitzar la evolució biologica";
+                $resposta4 = "Investigar la radiació cosmica";
+                $correcte = $resposta1;
             } elseif ($numaleatori == 7) {
-                $resposta1 = "A8";
-                $resposta2 = "B8";
-                $resposta3 = "C8";
-                $resposta4 = "D8";
+                $resposta1 = "America";
+                $resposta2 = "Asia";
+                $resposta3 = "Europa";
+                $resposta4 = "Oceania";
+                $correcte = $resposta3;
             } elseif ($numaleatori == 8) { // Multiples respostes
-                $resposta1 = "A9";
-                $resposta2 = "B9";
-                $resposta3 = "C9";
-                $resposta4 = "D9";
+                $resposta1 = "ATLAS";
+                $resposta2 = "FINTEC";
+                $resposta3 = "CMS";
+                $resposta4 = "MEDIN";
+                $correcte = $resposta1;
+                $correcte2 = $resposta3;
             } elseif ($numaleatori == 9) { // Multiples respostes
-                $resposta1 = "A10";
-                $resposta2 = "B10";
-                $resposta3 = "C10";
-                $resposta4 = "D10";
+                $resposta1 = "França";
+                $resposta2 = "Alemanya";
+                $resposta3 = "Estats Units";
+                $resposta4 = "Grecia";
+                $correcte = $resposta1;
+                $correcte2 = $resposta2;
             }
             if ($numaleatori == 9 || $numaleatori == 8) {
                 $tipus = "checkbox";
@@ -163,6 +177,23 @@
         ?>
 
         <script>
+            // Fer una llista amb tots els textos de resposta, llavors fer un bucle que miri si esta chequejada la resposta que te el mateix contingut que correcte, i aixi saber si es correcte la resposta.
+
+            var respuesta1 = document.getElementById("resposta1").value;
+            var respuesta2 = document.getElementById("resposta2").value;
+            var respuesta3 = document.getElementById("resposta3").value;
+            var respuesta4 = document.getElementById("resposta4").value;
+            let correcte = document.getElementById('correcte');
+
+            var listaRespuestas = [respuesta1, respuesta2, respuesta3, respuesta4];
+            for (var i = 0; i < listaRespuestas.length; i++) {
+                
+                if (listaRespuestas[i] == correcte.value){
+                    var respostacorrecte = listaRespuestas[i]
+                    console.log("La resposta correcte es ")
+                    console.log(respostacorrecte)
+                }
+            } // Aqui hem diu quina es la resposta correcte
 
             let panteriors = document.getElementById("panteriors") 
             let pactual = document.getElementById("pactual");
@@ -179,17 +210,17 @@
             let correcte2 = document.getElementById('correcte2');
 
             if (correcte2.value == "false") {
-                if (resposta1.checked) {
-                    if (resposta1.value == correcte.value) {
-                        let num = parseInt(numanterior.value);
-                        if (isNaN(num)) {
-                            num = 0; // Si es NaN, se iguala a 0
-                        }
-                        numanterior.value = num + 1;
-                        // Sumar 1 a numanterior.value
+                if (resposta1.value == correcte.value) {
+                    let num = parseInt(numanterior.value);
+                    if (isNaN(num)) {
+                        num = 0; // Si es NaN, se iguala a 0
                     }
+                    numanterior.value = num + 1;
+                    alert("Resposta correcte")
+                    // Sumar 1 a numanterior.value
                 }
-            } else {
+                }
+             else {
                 if (resposta1.checked && resposta2.checked) { // Usa && en lugar de 'and'
                     if (resposta1.value == correcte.value && resposta2.value == correcte2.value) {
                         let num = parseInt(numanterior.value);
