@@ -1,4 +1,4 @@
-body.preguntes {
+body.preguntes, body.final {
     background-color: rgb(69, 113, 174);
     background-image: none;
 }
@@ -6,6 +6,7 @@ body {
     background-size: cover;
     background-image: url(../images/conjunto.webp);
     transition: 1s;
+    font-family: system-ui;
 }
 
 .principal {
@@ -62,6 +63,12 @@ body {
     background-color: white;
     border-radius: 2vh;
 }
+.resposta1, .resposta2, .resposta3, .resposta4 {
+    transition: transfor 0.3s ease;
+}
+.resposta1:hover, .resposta2:hover, .resposta3:hover, .resposta4:hover {
+    transform: scale(1.1);
+}
 .respostes {
     margin-top: 19px;
     margin-left: 10px;
@@ -95,4 +102,67 @@ body {
 .fonsmessi {
     background-image: url(../images/messi.webp);
 
+}
+.percentatge {
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 3vh;
+    text-align: center;
+    width: 20%;
+    background-color: rgb(233, 160, 71);
+    margin-top: 40vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: white;
+}
+button {
+    /* margin-top: -20px; */
+    border: 2px solid black;
+    padding: 8px;
+    border-radius: 1vh;
+    font-family: system-ui;
+    transition: transform 0.3s ease;
+}
+button:hover {
+    transform: scale(1.1);
+}
+.resultats {
+    border: 2px solid black;
+    margin: auto;
+    text-align: center;
+    border-radius: 3vh;
+    background-color: rgb(233, 160, 71);
+    width: 40%;
+    color: white;
+    margin-top: -40vh;
+}
+.imatgeResultat {
+    height: 40vh;
+    width: 40vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+.enviar {
+    grid-row: 5;
+    grid-column: 6;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 2vh;
+    transition: transform 0.3s ease;
+}
+.enviar:hover {
+    transform: scale(1.1);
+}
+.comptador {
+    background-color: white;
+    border: 2px solid black;
+    background-color: rgb(233, 160, 71);
+    color: white;
+    border-radius: 2vh;
+    float: right;
+    margin-top: -5vh;
+    width: 10vh;
+    text-align: center;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
 }
