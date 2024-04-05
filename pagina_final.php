@@ -12,6 +12,11 @@
         $percentatge = $puntuacio * 10 . '%';
         $encertat = $puntuacio;
         $fallat = 10 - $puntuacio;
+        if ($encertat < 5) {
+            $imatge = "images/malament.webp";
+        } else {
+            $imatge = "images/be.webp";
+        }
         echo "
         <div class=\"percentatge\" id=\"percentatge\">
             <h2>$percentatge</h2>
@@ -20,7 +25,7 @@
         <div class=\"opacidad\" id=\"resultats\">
             <h2>$nom has tret un $puntuacio</h2>
             <h3>Has <span style=\"color: chartreuse;\">encertat $encertat</span>, has <span style=\"color: red;\">fallat $fallat</span> i has trigat $comptador segons</h3>
-            <img src=\"images/malament.webp\" class=\"imatgeResultat\">
+            <img src=\"$imatge\" class=\"imatgeResultat\">
         </div>
         ";?>
         <script>
