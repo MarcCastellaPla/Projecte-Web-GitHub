@@ -5,7 +5,8 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body class="preguntes">
-        <p id="contador" class="comptador">0</p>
+        <p id="puntuacio" class="puntuacio"></p>
+        <p id="contador" class="comptador"></p>
         <h1 style="text-align: center;margin-top: 8vh;">Preguntes sobre futbol</h1>
         <?php
         // Fer una caixa de text oculta on vagi acumulant la puntuacio

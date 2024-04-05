@@ -9,6 +9,8 @@
     </head>
 
     <body>
+        <p id="puntuacio" class="puntuacio"></p>
+        <p id="contador" class="comptador"></p>
         <h1>Preguntes sobre el CERN</h1>
         <div class="principal">
             <?php
