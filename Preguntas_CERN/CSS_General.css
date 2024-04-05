@@ -1,19 +1,29 @@
-@charset "utf-8";
-/* CSS Document */
-
-@font-face {
-    font-family: 'Arcade';
-    src: url(../fonts/Arcade.ttf) format('truetype');
-    font-style: normal;
-    font-weight: normal;
+.comptador {
+    background-color: white;
+    border: 2px solid black;
+    background-color: rgb(233, 160, 71);
+    color: white;
+    border-radius: 2vh;
+    float: right;
+    margin-top: -2vh;
+    width: 10vh;
+    text-align: center;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
 }
-@font-face {
-    font-family: 'Odin';
-    src: url(../fonts/OdinRounded.otf) format('truetype');
-    font-style: normal;
-    font-weight: normal;
+.puntuacio {
+    background-color: white;
+    border: 2px solid black;
+    background-color: rgb(233, 160, 71);
+    color: white;
+    border-radius: 2vh;
+    float: left;
+    margin-top: -2vh;
+    width: 10vh;
+    text-align: center;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
 }
-
 body {
     background-color: rgb(69, 113, 174);
     font-family: system-ui;

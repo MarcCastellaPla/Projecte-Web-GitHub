@@ -9,8 +9,6 @@
     </head>
 
     <body>
-        <h1>Preguntes sobre el CERN</h1>
-        <div class="principal">
             <?php
             // Fer una caixa de text oculta on vagi acumulant la puntuacio
             // Fer un sistema per que envii quina era la pregunta anterior i comprovi si la resposta era correcte.
@@ -28,17 +26,19 @@
                     "Quins països són membres fundadors del CERN?"
                 );
 
-                $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : null;
+                $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : 0;
                 $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : null;
-                $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;
-                echo "<h1>$numanterior</h1>";
+                $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;;
+                $comptador = isset($_POST["comptadorcalcul"]) ? $_POST["comptadorcalcul"] : 0;
+                
+                
+
                 $numaleatori = rand(0, 9);
                 $lista = str_split($panteriors);
                 while (in_array($numaleatori, $lista)) {
                     $numaleatori = rand(0, 9); // Generar otro número aleatorio
                 }
                 $panteriors .= $numaleatori;
-                echo "<h1>$panteriors</h1>";
                 $lista = str_split($panteriors);
                 
                 
@@ -133,7 +133,11 @@
                     $correcte2 = "false";
                 }
                 
-                
+                echo "
+                <p id=\"puntuacio\" class=\"puntuacio\">$numanterior</p>
+                <p id=\"comptador\" class=\"comptador\" value=\"$comptador\">$comptador</p>
+                <h1>Preguntes sobre el CERN</h1>
+                <div class=\"principal\">";
                 $pregunta = $llista_preguntes[$numaleatori];
                 echo '<p class="pregunta" id="pregunta">'. $pregunta. '</p>';
             
@@ -160,6 +164,8 @@
                                     <label><input type=\"$tipus\" name=\"pregunta_cern\"value=\"$resposta4\" id=\"resposta4\">$resposta4</label>
                                     </div>
                                 <div class=\"ocult\">
+                                <input type=\"hidden\" class=\"form\" id=\"comptador\" aria-describedby=\"comptador\" name=\"comptador\" value=\"$comptador\">
+                                <input type=\"hidden\" class=\"form\" id=\"comptadorcalcul\" aria-describedby=\"comptadorcalcul\" class=\"comptador\" name=\"comptadorcalcul\" value=\"$comptador\">
                                 <input type=\"hidden\" class=\"form\" id=\"numanterior\" aria-describedby=\"numanterior\" name=\"numanterior\" value=\"$numanterior\">
                                 <input type=\"hidden\" class=\"form\" id=\"correcte\" aria-describedby=\"correcte\" name=\"correcte\" value=\"$correcte\">
                                 <input type=\"hidden\" class=\"form\" id=\"correcte2\" aria-describedby=\"correcte2\" name=\"correcte2\" value=\"$correcte2\">
@@ -172,10 +178,40 @@
                 </form>
             </div>
             ";
+            echo "<h1>$comptador</h1>";
 
             ?>
 
             <script>
+                
+                // Obtener el valor del contador PHP del campo oculto
+                let comptador = document.getElementById("comptadorcalcul").value    ;
+                console.log("Comptador rebut desde php")
+                console.log(comptador)
+
+
+                let comptadors = document.querySelectorAll(".comptador"); // Seleccionar todos los elementos con la clase "comptador"
+                let imprimircomptador = document.querySelectorAll("comptador");
+                console.log("Valor del comptador")
+                console.log(comptador)
+                let sumar = comptador
+                function aumentarComptador() {
+                    
+                    sumar++;
+                    // Actualizar el contenido de todos los elementos con la clase "comptador"
+                
+                    let comptador = sumar
+                    comptadorcalcul.value = comptador
+
+
+                    document.getElementById("comptador").textContent = comptador;
+                    
+                }
+                
+
+                setInterval(aumentarComptador, 1000);
+
+                // Tu otro código JavaScript aquí
 
                 // Fer una llista amb tots els textos de resposta, llavors fer un bucle que miri si esta chequejada la resposta que te el mateix contingut que correcte, i aixi saber si es correcte la resposta.
 
@@ -192,7 +228,6 @@
                     
                         if (listaRespuestas[i] == correcte){
                             let numcorrecte = llistanums[i]
-                            console.log(i)
                             console.log("El numero de resposta correcte es ")
                             console.log(numcorrecte)
                             var respostacorrecte = "resposta" + numcorrecte
