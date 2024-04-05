@@ -33,7 +33,7 @@
                 $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : null;
                 $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : null;
                 $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;
-                echo "<h1>$numanterior</h1>";
+                
                 $numaleatori = rand(0, 9);
                 $lista = str_split($panteriors);
                 while (in_array($numaleatori, $lista)) {
