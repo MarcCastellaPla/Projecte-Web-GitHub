@@ -11,6 +11,7 @@
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
 }
+
 .puntuacio {
     background-color: white;
     border: 2px solid black;
@@ -192,9 +193,11 @@ select {
     }
 }
 .imatge {
-    display: block;
-    margin: auto;
-    margin-bottom: 2%;
+    margin-left: 25%!important;
+
+    width: 40vw !important;
+    height: 30vh !important;
+
 }
 .ocult {
     display:none;

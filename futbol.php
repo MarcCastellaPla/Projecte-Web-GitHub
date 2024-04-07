@@ -23,7 +23,7 @@
 
             $nom = $_POST['nom'];
             $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : 0;
-            $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : null;
+            $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : "";
             $comptador = isset($_POST["comptadorcalcul"]) ? $_POST["comptadorcalcul"] : 0;
             $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;
 

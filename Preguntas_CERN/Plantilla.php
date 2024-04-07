@@ -9,10 +9,6 @@
     </head>
 
     <body>
-        <p id="puntuacio" class="puntuacio"></p>
-        <p id="contador" class="comptador"></p>
-        <h1>Preguntes sobre el CERN</h1>
-        <div class="principal">
             <?php
             // Fer una caixa de text oculta on vagi acumulant la puntuacio
             // Fer un sistema per que envii quina era la pregunta anterior i comprovi si la resposta era correcte.
@@ -30,17 +26,19 @@
                     "Quins països són membres fundadors del CERN?"
                 );
 
-                $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : null;
-                $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : null;
-                $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;
+                $numanterior = isset($_POST["numanterior"]) ? $_POST["numanterior"] : 0;
+                $panteriors = isset($_POST["panteriors"]) ? $_POST["panteriors"] : "";
+                $operador = isset($_POST["pregunta_cern"]) ? $_POST["pregunta_cern"] : null;;
+                $comptador = isset($_POST["comptadorcalcul"]) ? $_POST["comptadorcalcul"] : 0;
                 
+                
+                $nom = $_POST['nom'];
                 $numaleatori = rand(0, 9);
                 $lista = str_split($panteriors);
                 while (in_array($numaleatori, $lista)) {
                     $numaleatori = rand(0, 9); // Generar otro número aleatorio
                 }
                 $panteriors .= $numaleatori;
-                echo "<h1>$panteriors</h1>";
                 $lista = str_split($panteriors);
                 
                 
@@ -54,7 +52,7 @@
                     }
                 }
                 if ($completat) {
-                    $action = "../index.php";
+                    $action = "../pagina_final.php";
                 } else {
                     $action = "Plantilla.php";
                 }
@@ -68,12 +66,14 @@
                     $resposta3 = "LHC";
                     $resposta4 = "PLC";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_6.jpg";
 
                 } elseif ($numaleatori == 1) {
                     $resposta1 = "Organització a Europa per el Descubriment del Univers";
                     $resposta2 = "Organització Europea per la Investigació Nuclear";
                     $resposta3 = "Cientifics a la Recerca de Electrons Neurodivergents";
                     $resposta4 = "Centre d’Estudis de la Robotica i Nanotecnología";
+                    $ruta = "imatges/Cern_5.jpg";
                     $correcte = $resposta2;
                 } elseif ($numaleatori == 2) {
                     $resposta1 = "1954";
@@ -81,12 +81,14 @@
                     $resposta3 = "1978";
                     $resposta4 = "1987";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_4.jpg";
                 } elseif ($numaleatori == 3) {
                     $resposta1 = "El bosó de higgs";
                     $resposta2 = "Els Quarks";
                     $resposta3 = "Els Electrons";
                     $resposta4 = "Els Neutrins";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_3.jpg";
                 }elseif ($numaleatori == 4) {
                     
                     $resposta1 = "Estats Units";
@@ -94,12 +96,14 @@
                     $resposta3 = "Alemanya";
                     $resposta4 = "Suïssa";
                     $correcte = $resposta4;
+                    $ruta = "imatges/Cern_2.jpg";
                 } elseif ($numaleatori == 5) {
                     $resposta1  = "ALICE";
                     $resposta2 = "STRATFOR";
                     $resposta3 = "CIRN";
                     $resposta4 = "URS";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_1.jpg";
 
                 } elseif ($numaleatori == 6) {
                     $resposta1 = "Estudiar partícules subatòmiques";
@@ -107,12 +111,14 @@
                     $resposta3 = "Analitzar la evolució biologica";
                     $resposta4 = "Investigar la radiació cosmica";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_7.jpg";
                 } elseif ($numaleatori == 7) {
                     $resposta1 = "America";
                     $resposta2 = "Asia";
                     $resposta3 = "Europa";
                     $resposta4 = "Oceania";
                     $correcte = $resposta3;
+                    $ruta = "imatges/Cern_8.jpg";
                 } elseif ($numaleatori == 8) { // Multiples respostes
                     $resposta1 = "ATLAS";
                     $resposta2 = "FINTEC";
@@ -120,6 +126,7 @@
                     $resposta4 = "MEDIN";
                     $correcte = $resposta1;
                     $correcte2 = $resposta3;
+                    $ruta = "imatges/Cern_9.jpg";
                 } elseif ($numaleatori == 9) { // Multiples respostes
                     $resposta1 = "França";
                     $resposta2 = "Alemanya";
@@ -127,6 +134,7 @@
                     $resposta4 = "Sudafrica";
                     $correcte = $resposta1;
                     $correcte2 = $resposta2;
+                    $ruta = "imatges/LogoCERN.png";
                 }
                 if ($numaleatori == 9 || $numaleatori == 8) {
                     $tipus = "checkbox";
@@ -135,14 +143,18 @@
                     $correcte2 = "false";
                 }
                 
-                
+                echo "
+                <p id=\"puntuacio\" class=\"puntuacio\">$numanterior</p>
+                <p id=\"comptador\" class=\"comptador\" value=\"$comptador\">$comptador</p>
+                <h1>Preguntes sobre el CERN</h1>
+                <div class=\"principal\">";
                 $pregunta = $llista_preguntes[$numaleatori];
                 echo '<p class="pregunta" id="pregunta">'. $pregunta. '</p>';
             
 
         
             echo " 
-            <img src=\"imatges/LogoCERN.png\" alt=\"CERN\" class=\"imatge\">
+            <img src=\"$ruta\" alt=\"CERN\" class=\"imatge\">
 
             <div class=\"respostes\">
                 <form action=\"$action\" method=\"post\">
@@ -162,8 +174,11 @@
                                     <label><input type=\"$tipus\" name=\"pregunta_cern\"value=\"$resposta4\" id=\"resposta4\">$resposta4</label>
                                     </div>
                                 <div class=\"ocult\">
+                                <input type=\"hidden\" class=\"form\" id=\"comptador\" aria-describedby=\"comptador\" name=\"comptador\" value=\"$comptador\">
+                                <input type=\"hidden\" class=\"form\" id=\"comptadorcalcul\" aria-describedby=\"comptadorcalcul\" class=\"comptador\" name=\"comptadorcalcul\" value=\"$comptador\">
                                 <input type=\"hidden\" class=\"form\" id=\"numanterior\" aria-describedby=\"numanterior\" name=\"numanterior\" value=\"$numanterior\">
                                 <input type=\"hidden\" class=\"form\" id=\"correcte\" aria-describedby=\"correcte\" name=\"correcte\" value=\"$correcte\">
+                                <input type=\"hidden\" id=\"nom\" name=\"nom\" value=\"$nom\">
                                 <input type=\"hidden\" class=\"form\" id=\"correcte2\" aria-describedby=\"correcte2\" name=\"correcte2\" value=\"$correcte2\">
                                 <input type=\"hidden\" class=\"form\" id=\"panteriors\" aria-describedby=\"panteriors\" name=\"panteriors\" value=\"$panteriors\">
                                 <input type=\"hidden\" class=\"form\" id=\"pactual\" aria-describedby=\"pactual\" name=\"pactual\" value=\"$pactual\">
@@ -175,9 +190,39 @@
             </div>
             ";
 
+
             ?>
 
             <script>
+                
+                // Obtener el valor del contador PHP del campo oculto
+                let comptador = document.getElementById("comptadorcalcul").value    ;
+                console.log("Comptador rebut desde php")
+                console.log(comptador)
+
+
+                let comptadors = document.querySelectorAll(".comptador"); // Seleccionar todos los elementos con la clase "comptador"
+                let imprimircomptador = document.querySelectorAll("comptador");
+                console.log("Valor del comptador")
+                console.log(comptador)
+                let sumar = comptador
+                function aumentarComptador() {
+                    
+                    sumar++;
+                    // Actualizar el contenido de todos los elementos con la clase "comptador"
+                
+                    let comptador = sumar
+                    comptadorcalcul.value = comptador
+
+
+                    document.getElementById("comptador").textContent = comptador;
+                    
+                }
+                
+
+                setInterval(aumentarComptador, 1000);
+
+                // Tu otro código JavaScript aquí
 
                 // Fer una llista amb tots els textos de resposta, llavors fer un bucle que miri si esta chequejada la resposta que te el mateix contingut que correcte, i aixi saber si es correcte la resposta.
 
@@ -194,7 +239,6 @@
                     
                         if (listaRespuestas[i] == correcte){
                             let numcorrecte = llistanums[i]
-                            console.log(i)
                             console.log("El numero de resposta correcte es ")
                             console.log(numcorrecte)
                             var respostacorrecte = "resposta" + numcorrecte
