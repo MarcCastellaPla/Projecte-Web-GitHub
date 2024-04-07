@@ -66,12 +66,14 @@
                     $resposta3 = "LHC";
                     $resposta4 = "PLC";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_6.jpg";
 
                 } elseif ($numaleatori == 1) {
                     $resposta1 = "Organització a Europa per el Descubriment del Univers";
                     $resposta2 = "Organització Europea per la Investigació Nuclear";
                     $resposta3 = "Cientifics a la Recerca de Electrons Neurodivergents";
                     $resposta4 = "Centre d’Estudis de la Robotica i Nanotecnología";
+                    $ruta = "imatges/Cern_5.jpg";
                     $correcte = $resposta2;
                 } elseif ($numaleatori == 2) {
                     $resposta1 = "1954";
@@ -79,12 +81,14 @@
                     $resposta3 = "1978";
                     $resposta4 = "1987";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_4.jpg";
                 } elseif ($numaleatori == 3) {
                     $resposta1 = "El bosó de higgs";
                     $resposta2 = "Els Quarks";
                     $resposta3 = "Els Electrons";
                     $resposta4 = "Els Neutrins";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_3.jpg";
                 }elseif ($numaleatori == 4) {
                     
                     $resposta1 = "Estats Units";
@@ -92,12 +96,14 @@
                     $resposta3 = "Alemanya";
                     $resposta4 = "Suïssa";
                     $correcte = $resposta4;
+                    $ruta = "imatges/Cern_2.jpg";
                 } elseif ($numaleatori == 5) {
                     $resposta1  = "ALICE";
                     $resposta2 = "STRATFOR";
                     $resposta3 = "CIRN";
                     $resposta4 = "URS";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_1.jpg";
 
                 } elseif ($numaleatori == 6) {
                     $resposta1 = "Estudiar partícules subatòmiques";
@@ -105,12 +111,14 @@
                     $resposta3 = "Analitzar la evolució biologica";
                     $resposta4 = "Investigar la radiació cosmica";
                     $correcte = $resposta1;
+                    $ruta = "imatges/Cern_7.jpg";
                 } elseif ($numaleatori == 7) {
                     $resposta1 = "America";
                     $resposta2 = "Asia";
                     $resposta3 = "Europa";
                     $resposta4 = "Oceania";
                     $correcte = $resposta3;
+                    $ruta = "imatges/Cern_8.jpg";
                 } elseif ($numaleatori == 8) { // Multiples respostes
                     $resposta1 = "ATLAS";
                     $resposta2 = "FINTEC";
@@ -118,6 +126,7 @@
                     $resposta4 = "MEDIN";
                     $correcte = $resposta1;
                     $correcte2 = $resposta3;
+                    $ruta = "imatges/Cern_9.jpg";
                 } elseif ($numaleatori == 9) { // Multiples respostes
                     $resposta1 = "França";
                     $resposta2 = "Alemanya";
@@ -125,6 +134,7 @@
                     $resposta4 = "Sudafrica";
                     $correcte = $resposta1;
                     $correcte2 = $resposta2;
+                    $ruta = "imatges/LogoCERN.png";
                 }
                 if ($numaleatori == 9 || $numaleatori == 8) {
                     $tipus = "checkbox";
@@ -144,7 +154,7 @@
 
         
             echo " 
-            <img src=\"imatges/LogoCERN.png\" alt=\"CERN\" class=\"imatge\">
+            <img src=\"$ruta\" alt=\"CERN\" class=\"imatge\">
 
             <div class=\"respostes\">
                 <form action=\"$action\" method=\"post\">
@@ -178,7 +188,7 @@
                 </form>
             </div>
             ";
-            echo "<h1>$comptador</h1>";
+
 
             ?>
 
